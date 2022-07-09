@@ -1,6 +1,10 @@
 const botaoPedra = document.querySelector('#btnPedra');
 
+let userPlay = ''
 const botoes = document.querySelectorAll('.botoes');
-const jogadaBtn = botoes.forEach(element => {
-  addEventListener('click', ()=> { console.log(botoes)})
-});
+botoes.forEach(botoes => {
+  botoes.addEventListener('click', () => {
+    userPlay = botoes.id
+    console.log(userPlay)
+  })
+})

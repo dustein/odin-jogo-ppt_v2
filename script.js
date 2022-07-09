@@ -1,4 +1,6 @@
 const botaoPedra = document.querySelector('#btnPedra');
 
 const botoes = document.querySelectorAll('.botoes');
-console.log(botoes[0].id)
+const jogadaBtn = botoes.forEach(element => {
+  addEventListener('click', ()=> { console.log(botoes)})
+});

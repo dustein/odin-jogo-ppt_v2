@@ -1,6 +1,8 @@
 //area de axibicao da jogada
 const exibeJogada = document.querySelector('#jogada');
+const exibeJogadas = document.querySelector('#jogadas')
 const exibeRodada = document.querySelector('#rodada')
+const placar = document.querySelector('#placar')
 //fim exibicao jogada
 
 //jogada computador
@@ -15,36 +17,36 @@ function gameRules(user, pc) {
 
       //pedra x papel
       if(user === 'pedra' && pc === 'papel') {
-        exibeJogada.innerText = 'Papel enrola Pedra, você perdeu'
-        console.log('papel enrola pedra, user perdeu')
+        exibeJogadas.innerText = 'Você jogou Pedra, o computador jogou Papel...'
+        exibeJogada.innerText = 'Papel enrola Pedra... você perdeu'
       } else if (user === 'papel' && pc === 'pedra') {
+        exibeJogadas.innerText = 'Você jogou Papel, o computador jogou Pedra...'
         exibeJogada.innerText = 'Papel enrola Pedra, você VENCEU'
-        console.log('papel enrola pedra, user VENCEU')
         point = 1
       }
       //pedra x tesoura
       else if (user === 'pedra' && pc === 'tesoura') {
+        exibeJogadas.innerText = 'Você jogou Pedra, o computador jogou Tesoura...'
         exibeJogada.innerText = 'Pedra quebra Tesoura, você VENCEU'
-        console.log('pedra quebra tesoura, user VENCEU')
         point = 1
       } else if (user === 'tesoura' && pc === 'pedra') {
+        exibeJogadas.innerText = 'Você jogou Tesoura, o computador jogou Pedra...'
         exibeJogada.innerText = 'Pedra quebra Tesoura, você perdeu'
-        console.log('pedra quebra tesoura, user perdeu')
       }
       //tesoura x papel
       else if (user === 'tesoura' && pc === 'papel') {
+        exibeJogadas.innerText = 'Você jogou Tesoura, o computador jogou Papel...'
         exibeJogada.innerText = 'Tesoura corta Papel, user VENCEU'
-        console.log('tesoura corta papel, user VENCEU')
         point = 1
       } else if (user === 'papel' && pc === 'tesoura') {
+        exibeJogadas.innerText = 'Você jogou Papel, o computador jogou Tesoura...'
         exibeJogada.innerText = 'Tesoura corta Papel, user perdeu'
-        console.log('tesoura corta papel, user perdeu')
       }
       // empate
       else if (user === pc) {
+        
         exibeJogada.innerText = 'Jogaram igual, empate na rodada'
 
-        console.log('jogaram igual, empate na rodada')
         point = 2
       } else {
         console.log('caso não previsto')
@@ -82,6 +84,8 @@ function rodada() {
         pontoEmpate += 1;
       }
       
+      placar.innerHTML = `pontos user ${pontoUser} | empates ${pontoEmpate} | pontos computador ${pontoPc}`;
+
       console.log(`pontos user ${pontoUser} | empates ${pontoEmpate} | pontos computador ${pontoPc}`)
     })
   })

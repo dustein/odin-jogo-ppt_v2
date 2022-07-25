@@ -4,6 +4,7 @@ const exibeJogadas = document.querySelector('#jogadas')
 const exibeRodada = document.querySelector('#rodada')
 const placar = document.querySelector('#placar')
 const botoesJogo = document.querySelector('#botoesJogo')
+const reiniciar = document.querySelector('#reiniciar')
 //fim exibicao jogada
 
 //jogada computador
@@ -77,15 +78,22 @@ function rodada() {
         pontoEmpate += 1;
       }
       
-      placar.innerHTML = `pontos user ${pontoUser} | empates ${pontoEmpate} | pontos computador ${pontoPc}`;
+      placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Computador: ${pontoPc}`;
 
       console.log(`pontos user ${pontoUser} | empates ${pontoEmpate} | pontos computador ${pontoPc}`)
 
       if (pontoUser === 5 || pontoPc === 5) {
         exibeJogada.innerText = "FIM DE JOGO"
         exibeJogadas.innerText = ""
-        botoesJogo.innerHTML = "";
-        
+        botoesJogo.innerHTML = ""
+        botaoReiniciar = document.createElement('button')
+        botaoReiniciar.innerText = "REINICIAR"
+        reiniciar.appendChild(botaoReiniciar)
+        botaoReiniciar.addEventListener('click', () => {
+          botaoReiniciar.style.color = 'green'
+          pontoUser = 0;
+          pontoPc = 0;
+        })
       }
     })
   })

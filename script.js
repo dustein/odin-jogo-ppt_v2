@@ -3,6 +3,7 @@ const exibeJogada = document.querySelector('#jogada');
 const exibeJogadas = document.querySelector('#jogadas')
 const exibeRodada = document.querySelector('#rodada')
 const placar = document.querySelector('#placar')
+const botoesJogo = document.querySelector('#botoesJogo')
 //fim exibicao jogada
 
 //jogada computador
@@ -17,29 +18,23 @@ function gameRules(user, pc) {
 
       //pedra x papel
       if(user === 'pedra' && pc === 'papel') {
-        exibeJogadas.innerText = 'Você jogou Pedra, o computador jogou Papel...'
-        exibeJogada.innerText = 'Papel enrola Pedra... você perdeu'
+        exibeJogada.innerHTML = 'Papel enrola pedra... você perdeu'
       } else if (user === 'papel' && pc === 'pedra') {
-        exibeJogadas.innerText = 'Você jogou Papel, o computador jogou Pedra...'
         exibeJogada.innerText = 'Papel enrola Pedra, você VENCEU'
         point = 1
       }
       //pedra x tesoura
       else if (user === 'pedra' && pc === 'tesoura') {
-        exibeJogadas.innerText = 'Você jogou Pedra, o computador jogou Tesoura...'
         exibeJogada.innerText = 'Pedra quebra Tesoura, você VENCEU'
         point = 1
       } else if (user === 'tesoura' && pc === 'pedra') {
-        exibeJogadas.innerText = 'Você jogou Tesoura, o computador jogou Pedra...'
         exibeJogada.innerText = 'Pedra quebra Tesoura, você perdeu'
       }
       //tesoura x papel
       else if (user === 'tesoura' && pc === 'papel') {
-        exibeJogadas.innerText = 'Você jogou Tesoura, o computador jogou Papel...'
         exibeJogada.innerText = 'Tesoura corta Papel, user VENCEU'
         point = 1
       } else if (user === 'papel' && pc === 'tesoura') {
-        exibeJogadas.innerText = 'Você jogou Papel, o computador jogou Tesoura...'
         exibeJogada.innerText = 'Tesoura corta Papel, user perdeu'
       }
       // empate
@@ -67,16 +62,14 @@ function rodada() {
     botao.addEventListener('click', escolha => {
       user = escolha.target.id
       pc = computerPlay();
-      console.log(`User escolheu ${user}. Computador escolheu ${pc}`)
+      exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. Computador escolheu <strong>${pc}</strong>.`
 
       vencedor = gameRules(user, pc)
       if (vencedor === 0) {
         console.log("ponto pro COMPUTADOR!")
-        exibeRodada.innerText = "... Ponto pro compuador"
         pontoPc += 1;
       } else if (vencedor === 1) {
         console.log("ponto pro USER")
-        exibeRodada.innerText = "... Ponto pro User"
 
         pontoUser += 1;
       } else {
@@ -87,6 +80,13 @@ function rodada() {
       placar.innerHTML = `pontos user ${pontoUser} | empates ${pontoEmpate} | pontos computador ${pontoPc}`;
 
       console.log(`pontos user ${pontoUser} | empates ${pontoEmpate} | pontos computador ${pontoPc}`)
+
+      if (pontoUser === 5 || pontoPc === 5) {
+        exibeJogada.innerText = "FIM DE JOGO"
+        exibeJogadas.innerText = ""
+        botoesJogo.innerHTML = "";
+        
+      }
     })
   })
   return 'rodou rodada'

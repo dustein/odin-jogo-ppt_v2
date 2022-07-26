@@ -85,15 +85,17 @@ function rodada() {
       if (pontoUser === 5 || pontoPc === 5) {
         exibeJogada.innerText = "FIM DE JOGO"
         exibeJogadas.innerText = ""
-        botoesJogo.innerHTML = ""
+        botoesJogo.innerHTML = "Deseja jogar novamente?"
         botaoReiniciar = document.createElement('button')
+        botaoReiniciar.setAttribute('id', 'reiniciar')
         botaoReiniciar.innerText = "REINICIAR"
         reiniciar.appendChild(botaoReiniciar)
-        botaoReiniciar.addEventListener('click', () => {
-          botaoReiniciar.style.color = 'green'
-          pontoUser = 0;
-          pontoPc = 0;
+        $('reiniciar').click(()=> {
+          $("#gameArea").load("#gameArea #refreshArea > *");
         })
+        // botaoReiniciar.addEventListener('click', () => {
+        //   window.location.reload();
+        // })
       }
     })
   })

@@ -11,7 +11,7 @@ const exibeVideo = document.querySelector('#video')
 const videoPlay = {
   pedra: {
     titulo: "Pedra !",
-    source: './midia/pedra.jpg'
+    source: './midia/game-on.mp4'
   },
   papel: {
     titulo: "Papel !",
@@ -32,33 +32,43 @@ function computerPlay() {
 //logica do jogo - atribui ponto para o vencedor. 0 computador 1 user, 2 empate
 function gameRules(user, pc) {
       let point = 0
-
+      let played = ""
+      let turn = {
+        winner: point,
+        play: played
+      }
       //pedra x papel
       if(user === 'pedra' && pc === 'papel') {
         exibeJogada.innerHTML = 'Papel enrola pedra... você perdeu'
+        played = 'Papel enrola Pedra...'
       } else if (user === 'papel' && pc === 'pedra') {
         exibeJogada.innerText = 'Papel enrola Pedra, você VENCEU'
         point = 1
+        played = 'Papel enrola Pedra...'
       }
       //pedra x tesoura
       else if (user === 'pedra' && pc === 'tesoura') {
         exibeJogada.innerText = 'Pedra quebra Tesoura, você VENCEU'
         point = 1
+        played = 'Pedra quebra a Tesoura...'
       } else if (user === 'tesoura' && pc === 'pedra') {
         exibeJogada.innerText = 'Pedra quebra Tesoura, você perdeu'
+        played = 'Pedra quebra a Tesoura...'
       }
       //tesoura x papel
       else if (user === 'tesoura' && pc === 'papel') {
         exibeJogada.innerText = 'Tesoura corta Papel, user VENCEU'
         point = 1
+        played = 'Tesoura corta o Papel...'
       } else if (user === 'papel' && pc === 'tesoura') {
         exibeJogada.innerText = 'Tesoura corta Papel, user perdeu'
+        played = 'Tesoura corta o Papel...'
       }
       // empate
       else if (user === pc) {
         
         exibeJogada.innerText = 'Jogaram igual, empate na rodada'
-
+        played = 'Escolheram a mesma jogada !'
         point = 2
       } else {
         console.log('caso não previsto')
@@ -71,7 +81,6 @@ function gameRules(user, pc) {
 function rodada() {
   let user;
   let pc;
-  let video;
   let pontoUser = 0;
   let pontoPc = 0;
   let pontoEmpate = 0;
@@ -81,10 +90,9 @@ function rodada() {
       user = escolha.target.id
       pc = computerPlay();
       // foto da jogado do computador
-      video = videoPlay[pc].source;
-
-      exibeVideo.innerHTML = `<img height="200" src="${video}" alt="imagem titulo">`
-      exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. Computador escolheu <strong>${pc}</strong>.`
+      exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. A Maria escolheu ...`
+      // exibeVideo.innerHTML = `<img height="200" src="${videoPlay[pc].source}" alt="imagem titulo"></br><h2>${videoPlay[pc].titulo}</h2>`
+      exibeVideo.innerHTML = `<video autoplay height="240"><source src="${videoPlay[pc].source}" type="video/mp4"></video></br><h2>${videoPlay[pc].titulo}</h2>`
       
       //vencedor recebe o ponto atribuido pelo gameRules
       vencedor = gameRules(user, pc);
@@ -98,8 +106,6 @@ function rodada() {
       };
       
       placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Computador: ${pontoPc}`;
-
-      console.log(`pontos user ${pontoUser} | empates ${pontoEmpate} | pontos computador ${pontoPc}`)
 
       if (pontoUser === 5 || pontoPc === 5) {
         exibeJogada.innerText = "FIM DE JOGO"

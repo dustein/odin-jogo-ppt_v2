@@ -7,14 +7,53 @@ body {
 
 #header {
    text-align: center;
-   background-color: rgb(182, 224, 226);
+   background-color: rgb(177, 238, 238);
    padding: 0.5rem;
 }
 
-#jogada, #jogadas {
+#desafie {
    font-size: 1.5rem;
+   font-style: italic;
+}
+
+h1 {
+   font-size: 2rem;
+   text-shadow: 2px 2px rgb(241, 179, 224);
+}
+h2 {
+   margin: 0;
+}
+
+#dinamica {
+   min-height: 240px;
+}
+#jogada, #jogadas {
+   font-size: 1.3rem;
    padding: 0.5rem;
-   margin: 0.2rem;
+
+}
+
+#jogadas {
+   border: solid;
+   border-color:rgb(206, 248, 234);
+   background-color: rgb(233, 229, 202);
+}
+
+#jogada {
+   background-color: rgb(241, 179, 224);
+}
+
+#video {
+   background-color: rgb(177, 238, 238);
+   margin: 0;
+}
+
+video {
+   border-radius: 60px;
+   border: solid;
+   border-color: rgb(241, 179, 224);
+   max-height: 200px;
+   margin: 5px;
 }
 
 #botoesJogo {
@@ -30,8 +69,16 @@ body {
    font-size: 1.6rem;
    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
    border-radius: 16px;
+   
 }
 
+.btnImage {
+   max-width: 5rem;
+}
+figcaption {
+   font-size: 1rem;
+   margin: 0;
+}
 .botoes:hover {
    background-color: rgb(53, 34, 98);
 }
@@ -42,3 +89,16 @@ body {
    font-style: italic;
    font-weight: 800;
 }
+
+/* #pedra {
+   background-image: url("./midia/botao-pedra.png");
+   background-size: cover;
+}
+#papel {
+   background-image: url("./midia/botao-papel.png");
+   background-size: cover;
+}
+#tesoura {
+   background-image: url("./midia/botao-tesoura.png");
+   background-size: cover;
+} */

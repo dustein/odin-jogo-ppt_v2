@@ -11,15 +11,15 @@ const exibeVideo = document.querySelector('#video')
 const videoPlay = {
   pedra: {
     titulo: "Pedra !",
-    source: './midia/game-on.mp4'
+    source: './midia/vid_pedra.mp4'
   },
   papel: {
     titulo: "Papel !",
-    source: './midia/papel.jpg'
+    source: './midia/vid_papel.mp4'
   },
   tesoura: {
     titulo: "Tesoura !",
-    source: './midia/tesoura.jpg'
+    source: './midia/vid_tesoura.mp4'
   }
 };
 
@@ -84,7 +84,7 @@ function rodada() {
   let pontoUser = 0;
   let pontoPc = 0;
   let pontoEmpate = 0;
-  const botoes = document.querySelectorAll('.botoes');
+  const botoes = document.querySelectorAll('.btnImage');
   botoes.forEach(botao => {
     botao.addEventListener('click', escolha => {
       user = escolha.target.id
@@ -110,7 +110,7 @@ function rodada() {
       if (pontoUser === 5 || pontoPc === 5) {
         exibeJogada.innerText = "FIM DE JOGO"
         exibeJogadas.innerText = ""
-        botoesJogo.innerHTML = "Deseja jogar novamente?"
+        botoesJogo.innerHTML = "Deseja jogar novamente? Clique REINICIAR"
         botaoReiniciar = document.createElement('button')
         // botaoReiniciar.setAttribute('id', 'reiniciar')
         botaoReiniciar.innerText = "REINICIAR"

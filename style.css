@@ -8,20 +8,24 @@ body {
 #header {
    text-align: center;
    background-color: rgb(177, 238, 238);
-   padding: 0.5rem;
+   padding-bottom: 0.1rem;
 }
 
 #desafie {
    font-size: 1.5rem;
    font-style: italic;
+   margin: 0;
+   padding-top: 0.3rem;
 }
 
 h1 {
    font-size: 2rem;
    text-shadow: 2px 2px rgb(241, 179, 224);
+   margin: 0.3rem;
 }
 h2 {
    margin: 0;
+   padding-bottom: 1rem;
 }
 
 #dinamica {
@@ -41,6 +45,7 @@ h2 {
 
 #jogada {
    background-color: rgb(241, 179, 224);
+   padding: 1rem;
 }
 
 #video {
@@ -75,6 +80,11 @@ video {
 .btnImage {
    max-width: 5rem;
 }
+.btnImage:hover {
+   background-color: brown;
+   border-radius: 24px;
+}
+
 figcaption {
    font-size: 1rem;
    margin: 0;

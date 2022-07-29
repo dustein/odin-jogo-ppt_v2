@@ -1,11 +1,12 @@
 * {
-   margin: o;
+   margin: 0;
    padding: 0;
 }
 
 body {
    background-color: rgb(177, 238, 238);
    text-align: center;
+   height: 100vh;
 }
 
 #header {
@@ -21,14 +22,14 @@ body {
 }
 
 h1 {
-   font-size: 1.3rem;
+   font-size: 1rem;
    text-shadow: 2px 2px rgb(241, 179, 224);
    margin: 0.3rem;
 }
 h2 {
    margin: 0;
    padding-bottom: 1rem;
-   font-size: 1.2rem;
+   font-size: 1rem;
 }
 
 p {
@@ -56,6 +57,7 @@ p {
 #video {
    background-color: rgb(177, 238, 238);
    margin: 0;
+
 }
 
 video {
@@ -106,19 +108,11 @@ figcaption {
    padding: 1rem 0 1rem;
    font-style: italic;
    font-weight: 800;
-   font-size: 1rem;
+   font-size: 0.8rem;
    background-color: aliceblue;
 }
 
-/* #pedra {
-   background-image: url("./midia/botao-pedra.png");
-   background-size: cover;
+#reiniciar:hover {
+   background-color: blue;
+   color: white;
 }
-#papel {
-   background-image: url("./midia/botao-papel.png");
-   background-size: cover;
-}
-#tesoura {
-   background-image: url("./midia/botao-tesoura.png");
-   background-size: cover;
-} */

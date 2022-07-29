@@ -108,11 +108,11 @@ function rodada() {
       placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Computador: ${pontoPc}`;
 
       if (pontoUser === 5 || pontoPc === 5) {
-        exibeJogada.innerText = "FIM DE JOGO"
+        exibeJogada.innerText = "Melhor de 5! FIM DE JOGO"
         exibeJogadas.innerText = ""
         botoesJogo.innerHTML = "Deseja jogar novamente? Clique REINICIAR"
         botaoReiniciar = document.createElement('button')
-        // botaoReiniciar.setAttribute('id', 'reiniciar')
+        botaoReiniciar.setAttribute('id', 'reiniciar')
         botaoReiniciar.innerText = "REINICIAR"
         reiniciar.appendChild(botaoReiniciar)
         botaoReiniciar.addEventListener('click', () => {

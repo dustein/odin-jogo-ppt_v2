@@ -1,40 +1,45 @@
-
+* {
+   margin: o;
+   padding: 0;
+}
 
 body {
-   background-color: rgb(207, 207, 207);
+   background-color: rgb(177, 238, 238);
    text-align: center;
 }
 
 #header {
    text-align: center;
-   background-color: rgb(177, 238, 238);
    padding-bottom: 0.1rem;
 }
 
 #desafie {
-   font-size: 1.5rem;
+   font-size: 1.2rem;
    font-style: italic;
    margin: 0;
    padding-top: 0.3rem;
 }
 
 h1 {
-   font-size: 2rem;
+   font-size: 1.3rem;
    text-shadow: 2px 2px rgb(241, 179, 224);
    margin: 0.3rem;
 }
 h2 {
    margin: 0;
    padding-bottom: 1rem;
+   font-size: 1.2rem;
+}
+
+p {
+   font-size: 0.8rem;
 }
 
 #dinamica {
    min-height: 240px;
 }
 #jogada, #jogadas {
-   font-size: 1.3rem;
    padding: 0.5rem;
-
 }
 
 #jogadas {
@@ -57,13 +62,12 @@ video {
    border-radius: 60px;
    border: solid;
    border-color: rgb(241, 179, 224);
-   max-height: 200px;
+   max-height: 180px;
    margin: 5px;
 }
 
 #botoesJogo {
    background-color: rgb(101, 101, 138);
-   padding: 1rem;
    display: flex;
    justify-content: space-evenly;
 }
@@ -71,14 +75,17 @@ video {
 .botoes {
    background-color: black;
    color: rgb(249, 242, 242);
-   font-size: 1.6rem;
-   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-   border-radius: 16px;
-   
+   border-radius: 16px;   
 }
 
 .btnImage {
-   max-width: 5rem;
+   width: 4rem;
+   min-width: auto;
+   padding: 0.1rem 0.3rem 0.1rem;
+   margin: 0.4rem;
+   background-color: rgb(53, 34, 98);
+   border-radius: 24px;
+
 }
 .btnImage:hover {
    background-color: brown;
@@ -87,17 +94,20 @@ video {
 
 figcaption {
    font-size: 1rem;
-   margin: 0;
+   margin: -0.5rem 0 0.5rem;
+   color: aliceblue;
+   font-weight: 800;
 }
 .botoes:hover {
    background-color: rgb(53, 34, 98);
 }
 
 #placar {
-   padding: 1rem;
-   font-size: 1.5rem;
+   padding: 1rem 0 1rem;
    font-style: italic;
    font-weight: 800;
+   font-size: 1rem;
+   background-color: aliceblue;
 }
 
 /* #pedra {

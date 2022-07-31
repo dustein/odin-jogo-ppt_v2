@@ -57,11 +57,11 @@ function gameRules(user, pc) {
       }
       //tesoura x papel
       else if (user === 'tesoura' && pc === 'papel') {
-        exibeJogada.innerText = 'Tesoura corta Papel, user VENCEU'
+        exibeJogada.innerText = 'Tesoura corta Papel, você VENCEU'
         point = 1
         played = 'Tesoura corta o Papel...'
       } else if (user === 'papel' && pc === 'tesoura') {
-        exibeJogada.innerText = 'Tesoura corta Papel, user perdeu'
+        exibeJogada.innerText = 'Tesoura corta Papel, você perdeu'
         played = 'Tesoura corta o Papel...'
       }
       // empate
@@ -90,7 +90,7 @@ function rodada() {
       user = escolha.target.id
       pc = computerPlay();
       // foto da jogado do computador
-      exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. A Maria escolheu ...`
+      exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. Duda escolheu ...`
       // exibeVideo.innerHTML = `<img height="200" src="${videoPlay[pc].source}" alt="imagem titulo"></br><h2>${videoPlay[pc].titulo}</h2>`
       exibeVideo.innerHTML = `<video autoplay height="240"><source src="${videoPlay[pc].source}" type="video/mp4"></video></br><h2>${videoPlay[pc].titulo}</h2>`
       
@@ -105,15 +105,15 @@ function rodada() {
         pontoEmpate += 1;
       };
       
-      placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Computador: ${pontoPc}`;
+      placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Duda: ${pontoPc}`;
 
       if (pontoUser === 5 || pontoPc === 5) {
-        exibeJogada.innerText = "Melhor de 5! FIM DE JOGO"
+        exibeJogada.innerText = "5 pontos ! FIM DE JOGO"
         exibeJogadas.innerText = ""
-        botoesJogo.innerHTML = "Deseja jogar novamente? Clique REINICIAR"
+        botoesJogo.innerHTML = "Deseja jogar novamente? Clique em DE NOVO !"
         botaoReiniciar = document.createElement('button')
         botaoReiniciar.setAttribute('id', 'reiniciar')
-        botaoReiniciar.innerText = "REINICIAR"
+        botaoReiniciar.innerText = "DE NOVO !"
         reiniciar.appendChild(botaoReiniciar)
         botaoReiniciar.addEventListener('click', () => {
           window.location.reload();
@@ -121,12 +121,10 @@ function rodada() {
       }
     })
   })
-  return 'rodou rodada'
 }
 
 function game() {
   rodada();
-  return "ok rodou uma"
 }
 
 console.log(game())

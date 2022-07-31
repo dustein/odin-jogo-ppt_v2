@@ -107,8 +107,13 @@ function rodada() {
       
       placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Computador: ${pontoPc}`;
 
-      if (pontoUser === 5 || pontoPc === 5) {
-        exibeJogada.innerText = "Melhor de 5! FIM DE JOGO"
+      if(pontoUser === 5 || pontoPc === 5) {
+
+        //se vencedor user
+        if(pontoUser === 5) {
+          exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO"
+        } 
+        exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO"
         exibeJogadas.innerText = ""
         botoesJogo.innerHTML = "Deseja jogar novamente? Clique REINICIAR"
         botaoReiniciar = document.createElement('button')

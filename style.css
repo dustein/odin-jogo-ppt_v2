@@ -7,6 +7,8 @@ body {
    background-color: rgb(177, 238, 238);
    text-align: center;
    height: 100vh;
+   display: flex;
+   flex-direction: column;
 }
 
 #header {
@@ -37,6 +39,7 @@ p {
 }
 
 #dinamica {
+   flex-grow: 1;
    min-height: 240px;
 }
 #jogada, #jogadas {
@@ -109,6 +112,7 @@ figcaption {
    font-style: italic;
    font-weight: 800;
    font-size: 0.8rem;
+   min-height: 1rem;
    background-color: aliceblue;
 }
 

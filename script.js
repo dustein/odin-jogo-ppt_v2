@@ -129,11 +129,12 @@ function rodada() {
           exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO";
           popHeader.innerText = "Você GANHOU !"
           popText.innerText = "Você fez 5 pontos primeiro."
-        }
+        } else if(pontoPc === 5) {
           audioLoose.play();
-        exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO";
-        popHeader.innerText = "Você PERDEU !"
-        popText.innerText = "Duda fez 5 pontos primeiro."
+          exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO";
+          popHeader.innerText = "Você PERDEU !"
+          popText.innerText = "Duda fez 5 pontos primeiro."
+        }
         
         exibeJogadas.innerText = "";
         
@@ -156,8 +157,4 @@ function rodada() {
   })
 }
 
-function game() {
-  rodada();
-}
-
-console.log(game())
+rodada();

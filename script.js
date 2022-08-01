@@ -7,6 +7,12 @@ const botoesJogo = document.querySelector('#botoesJogo')
 const reiniciar = document.querySelector('#reiniciar')
 const exibeVideo = document.querySelector('#video')
 
+const popFim = document.querySelector('#popFim');
+const testaPop = document.querySelector('#testaPop')
+
+testaPop.addEventListener('click', () => {
+  popFim.setAttribute('style', 'display: block;')
+})
 //videos jogada do computador
 const videoPlay = {
   pedra: {
@@ -112,6 +118,7 @@ function rodada() {
         //se vencedor user
         if(pontoUser === 5) {
           exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO"
+          window.alert('você venceu')
         } 
         exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO"
         exibeJogadas.innerText = ""

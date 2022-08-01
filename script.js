@@ -17,9 +17,7 @@ function pop() {
   popFim.setAttribute('style', 'display: block;')
 }
 
-testaPop.addEventListener('click', () => {
-  popFim.setAttribute('style', 'display: block;')
-})
+
 //videos jogada do computador
 const videoPlay = {
   pedra: {
@@ -108,7 +106,6 @@ function rodada() {
       audioPlim.play();
       // foto da jogado do computador
       exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. A Maria escolheu ...`
-      // exibeVideo.innerHTML = `<img height="200" src="${videoPlay[pc].source}" alt="imagem titulo"></br><h2>${videoPlay[pc].titulo}</h2>`
       exibeVideo.innerHTML = `<video autoplay height="240"><source src="${videoPlay[pc].source}" type="video/mp4"></video></br><h2>${videoPlay[pc].titulo}</h2>`
       
       //vencedor recebe o ponto atribuido pelo gameRules
@@ -132,38 +129,35 @@ function rodada() {
           exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO";
           popHeader.innerText = "Você GANHOU !"
           popText.innerText = "Você fez 5 pontos primeiro."
-        } else if(pontoPc === 5) {
-          audioLoose.play();
-          exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO";
-          popHeader.innerText = "Você PERDEU !"
-          popText.innerText = "Duda fez 5 pontos primeiro."
         }
+          audioLoose.play();
+        exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO";
+        popHeader.innerText = "Você PERDEU !"
+        popText.innerText = "Duda fez 5 pontos primeiro."
         
-        exibeJogadas.innerText = ""
+        exibeJogadas.innerText = "";
         
-        pop()
+        pop();
 
         popBotao.addEventListener('click', () => {
           window.location.reload();
         });
 
-        botoesJogo.innerHTML = "Deseja jogar novamente? Clique REINICIAR"
-        botaoReiniciar = document.createElement('button')
-        botaoReiniciar.setAttribute('id', 'reiniciar')
-        botaoReiniciar.innerText = "REINICIAR"
-        reiniciar.appendChild(botaoReiniciar)
-        botaoReiniciar.addEventListener('click', () => {
-          window.location.reload();
-        })
+        // botoesJogo.innerHTML = "Deseja jogar novamente? Clique REINICIAR"
+        // botaoReiniciar = document.createElement('button')
+        // botaoReiniciar.setAttribute('id', 'reiniciar')
+        // botaoReiniciar.innerText = "REINICIAR"
+        // reiniciar.appendChild(botaoReiniciar)
+        // botaoReiniciar.addEventListener('click', () => {
+        //   window.location.reload();
+        // })
       }
     })
   })
-  return 'rodou rodada'
 }
 
 function game() {
   rodada();
-  return "ok rodou uma"
 }
 
 console.log(game())

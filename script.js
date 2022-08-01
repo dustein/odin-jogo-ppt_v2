@@ -9,6 +9,13 @@ const exibeVideo = document.querySelector('#video')
 
 const popFim = document.querySelector('#popFim');
 const testaPop = document.querySelector('#testaPop')
+const popHeader = document.querySelector('.pop-header');
+const popText = document.querySelector('.pop-text')
+const popBotao = document.querySelector('.pop-botao');
+
+function pop() {
+  popFim.setAttribute('style', 'display: block;')
+}
 
 testaPop.addEventListener('click', () => {
   popFim.setAttribute('style', 'display: block;')
@@ -29,6 +36,9 @@ const videoPlay = {
   }
 };
 
+const audioWin = new Audio('./midia/win.wav')
+const audioLoose = new Audio('./midia/loose.wav')
+const audioPlim = new Audio('./midia/plim.wav')
 //jogada computador
 function computerPlay() {
   let choices = ["pedra", "papel", "tesoura"]
@@ -95,6 +105,7 @@ function rodada() {
     botao.addEventListener('click', escolha => {
       user = escolha.target.id
       pc = computerPlay();
+      audioPlim.play();
       // foto da jogado do computador
       exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. A Maria escolheu ...`
       // exibeVideo.innerHTML = `<img height="200" src="${videoPlay[pc].source}" alt="imagem titulo"></br><h2>${videoPlay[pc].titulo}</h2>`
@@ -117,11 +128,25 @@ function rodada() {
 
         //se vencedor user
         if(pontoUser === 5) {
-          exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO"
-          window.alert('você venceu')
-        } 
-        exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO"
+          audioWin.play();
+          exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO";
+          popHeader.innerText = "Você GANHOU !"
+          popText.innerText = "Você fez 5 pontos primeiro."
+        } else if(pontoPc === 5) {
+          audioLoose.play();
+          exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO";
+          popHeader.innerText = "Você PERDEU !"
+          popText.innerText = "Duda fez 5 pontos primeiro."
+        }
+        
         exibeJogadas.innerText = ""
+        
+        pop()
+
+        popBotao.addEventListener('click', () => {
+          window.location.reload();
+        });
+
         botoesJogo.innerHTML = "Deseja jogar novamente? Clique REINICIAR"
         botaoReiniciar = document.createElement('button')
         botaoReiniciar.setAttribute('id', 'reiniciar')

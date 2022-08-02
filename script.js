@@ -7,6 +7,18 @@ const botoesJogo = document.querySelector('#botoesJogo')
 const reiniciar = document.querySelector('#reiniciar')
 const exibeVideo = document.querySelector('#video')
 
+const popFim = document.querySelector('#popFim');
+const testaPop = document.querySelector('#testaPop')
+const popHeader = document.querySelector('.pop-header');
+const popText = document.querySelector('.pop-text')
+const popText2 = document.querySelector('.pop-text2')
+const popBotao = document.querySelector('.pop-botao');
+
+function pop() {
+  popFim.setAttribute('style', 'display: block;')
+}
+
+
 //videos jogada do computador
 const videoPlay = {
   pedra: {
@@ -107,15 +119,28 @@ function rodada() {
       
       placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Duda: ${pontoPc}`;
 
-      if (pontoUser === 5 || pontoPc === 5) {
-        exibeJogada.innerText = "5 pontos ! FIM DE JOGO"
-        exibeJogadas.innerText = ""
-        botoesJogo.innerHTML = "Deseja jogar novamente? Clique em DE NOVO !"
-        botaoReiniciar = document.createElement('button')
-        botaoReiniciar.setAttribute('id', 'reiniciar')
-        botaoReiniciar.innerText = "DE NOVO !"
-        reiniciar.appendChild(botaoReiniciar)
-        botaoReiniciar.addEventListener('click', () => {
+      if(pontoUser === 5 || pontoPc === 5) {
+
+        //se vencedor user
+        if(pontoUser === 5) {
+          audioWin.play();
+          exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO";
+          popHeader.innerText = "Você GANHOU !"
+          popText.innerText = "Você fez 5 pontos primeiro."
+          popText2.innerText = `Você: ${pontoUser} | empates: ${pontoEmpate} | Duda: ${pontoPc}.`
+        } else if(pontoPc === 5) {
+          audioLoose.play();
+          exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO";
+          popHeader.innerText = "Você PERDEU !"
+          popText.innerText = "Duda fez 5 pontos primeiro."
+          popText2.innerText = `Você: ${pontoUser} | empates: ${pontoEmpate} | Duda: ${pontoPc}.`
+        }
+        
+        exibeJogadas.innerText = "";
+        
+        pop();
+
+        popBotao.addEventListener('click', () => {
           window.location.reload();
         })
       }

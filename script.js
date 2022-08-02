@@ -11,6 +11,7 @@ const popFim = document.querySelector('#popFim');
 const testaPop = document.querySelector('#testaPop')
 const popHeader = document.querySelector('.pop-header');
 const popText = document.querySelector('.pop-text')
+const popText2 = document.querySelector('.pop-text2')
 const popBotao = document.querySelector('.pop-botao');
 
 function pop() {
@@ -119,7 +120,7 @@ function rodada() {
         pontoEmpate += 1;
       };
       
-      placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Computador: ${pontoPc}`;
+      placar.innerHTML = `Você: ${pontoUser} | empates: ${pontoEmpate} | Duda: ${pontoPc}`;
 
       if(pontoUser === 5 || pontoPc === 5) {
 
@@ -129,11 +130,13 @@ function rodada() {
           exibeJogada.innerText = "Você alcançou 5 vitórias! FIM DE JOGO";
           popHeader.innerText = "Você GANHOU !"
           popText.innerText = "Você fez 5 pontos primeiro."
+          popText2.innerText = `Você: ${pontoUser} | empates: ${pontoEmpate} | Duda: ${pontoPc}.`
         } else if(pontoPc === 5) {
           audioLoose.play();
           exibeJogada.innerText = "Duda venceu 5 vezes, você perdeu! FIM DE JOGO";
           popHeader.innerText = "Você PERDEU !"
           popText.innerText = "Duda fez 5 pontos primeiro."
+          popText2.innerText = `Você: ${pontoUser} | empates: ${pontoEmpate} | Duda: ${pontoPc}.`
         }
         
         exibeJogadas.innerText = "";

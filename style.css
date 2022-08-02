@@ -68,7 +68,6 @@ video {
    border-color: rgb(241, 179, 224);
    max-height: 180px;
    margin: 5px;
-
 }
 
 #botoesJogo {
@@ -180,8 +179,30 @@ figcaption {
    background-color: rgb(241, 179, 224)
 }
 
-#reiniciar:hover {
-   background-color: blue;
+#btn-restart {
+   background-color: blueviolet;
    color: white;
-   padding: 0.5rem;
-}
+   padding: 0.5rem 1rem;
+   border-radius: 24px;
+ }
+ 
+ /* Add Animation */
+ @-webkit-keyframes slideIn {
+   from {bottom: -300px; opacity: 0} 
+   to {bottom: 0; opacity: 1}
+ }
+ 
+ @keyframes slideIn {
+   from {bottom: -300px; opacity: 0}
+   to {bottom: 0; opacity: 1}
+ }
+ 
+ @-webkit-keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+ }
+ 
+ @keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+ }

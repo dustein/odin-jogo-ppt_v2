@@ -35,6 +35,10 @@ const videoPlay = {
   }
 };
 
+const audioLoose = new Audio('./midia/loose.wav');
+const audioWin = new Audio('./midia/win.wav');
+const audioPlim = new Audio('./midia/plim.wav');
+
 //jogada computador
 function computerPlay() {
   let choices = ["pedra", "papel", "tesoura"]
@@ -100,6 +104,7 @@ function rodada() {
   botoes.forEach(botao => {
     botao.addEventListener('click', escolha => {
       user = escolha.target.id
+      audioPlim.play();
       pc = computerPlay();
       // foto da jogado do computador
       exibeJogadas.innerHTML = `Você escolheu <strong>${user}</strong>. Duda escolheu ...`
@@ -148,8 +153,4 @@ function rodada() {
   })
 }
 
-function game() {
-  rodada();
-}
-
-console.log(game())
+rodada();

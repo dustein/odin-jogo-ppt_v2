@@ -144,7 +144,7 @@ figcaption {
    -webkit-animation-name: fadeIn; /* Fade in the background */
    -webkit-animation-duration: 1s;
    animation-name: fadeIn;
-   animation-duration: 1s
+   animation-duration: 1s;
  }
  
  /* Modal Content */
@@ -156,7 +156,7 @@ figcaption {
    -webkit-animation-name: slideIn;
    -webkit-animation-duration: 0.4s;
    animation-name: slideIn;
-   animation-duration: 0.4s
+   animation-duration: 0.4s;
  }
  
  .pop-header {
